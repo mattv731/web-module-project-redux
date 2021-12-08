@@ -11,7 +11,7 @@ const FavoriteMovieList = (props) => {
     const { favorites, removeFavorite } = props;
 
     const handleRemove = (item) => {
-        removeFavorite(item)
+        removeFavorite(item, item.id)
     }
     
     return (<div className="col-xs savedContainer">
