@@ -8,7 +8,7 @@ const Movie = (props) => {
     const { id } = useParams();
     const { push } = useHistory();
 
-    const { movies, deleteMovie } = props; 
+    const { movies, deleteMovie, displayFavorites } = props; 
 
     const movie = movies.find(movie=>movie.id===Number(id));
 
@@ -16,7 +16,8 @@ const Movie = (props) => {
         deleteMovie(movie.id);
         push('/movies');
     }
-    
+ 
+
     return(<div className="modal-page col">
         <div className="modal-dialog">
             <div className="modal-content">
@@ -58,7 +59,8 @@ const Movie = (props) => {
 
 const mapStateToProps = (state) => {
     return({
-        movies: state.movies,
+        displayFavorites: state.favorites.displayFavorites,
+        movies: state.movie.movies,
     })
 }
 
